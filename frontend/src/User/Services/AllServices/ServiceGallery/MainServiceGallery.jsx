@@ -7,6 +7,7 @@ import Footer from "../../../Components/Footer/Footer";
 import prev from "../../../../Assets/Arrows/prev.png";
 import next from "../../../../Assets/Arrows/next.png";
 import axios from "axios";
+import { API_URL } from "../../../../config/apiConfig";
 
 
 export default function MainServiceGallery({particularservice,setparticularservice}) {
@@ -56,7 +57,7 @@ export default function MainServiceGallery({particularservice,setparticularservi
 
   const fetchImages = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/get-images/${mainservice}`);
+      const response = await axios.get(`${API_URL}/api/get-images/${mainservice}`);
       if (!response) {
         throw new Error('Error fetching images');
       }

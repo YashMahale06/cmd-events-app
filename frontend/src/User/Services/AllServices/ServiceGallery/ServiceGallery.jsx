@@ -7,6 +7,7 @@ import prev from "../../../../Assets/Arrows/prev.png";
 import next from "../../../../Assets/Arrows/next.png";
 import Navbar from "../../../Components/Navbar/Navbar";
 import axios from "axios";
+import { API_URL } from "../../../../config/apiConfig";
 export default function ServiceGallery({
   particularservice,
   setparticularservice,
@@ -59,7 +60,7 @@ export default function ServiceGallery({
   const fetchImages = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/get-images/${mainservice}/${subservice}`
+        `${API_URL}/api/get-images/${mainservice}/${subservice}`
       );
 
       console.log(response.data);

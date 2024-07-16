@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import prev from "../../../../Assets/Arrows/prev.png";
 import next from "../../../../Assets/Arrows/next.png";
+import { API_URL } from "../../../../config/apiConfig";
 export default function MainService() {
   const [arrayImages, setArrayImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -41,7 +42,7 @@ export default function MainService() {
   const fetchImages = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/get-images/${mainservice}`
+        `${API_URL}/api/get-images/${mainservice}`
       );
 
       console.log(response);

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../Components/Navbar/Navbar";
 
 import axios from "axios";
+import { API_URL } from "../../config/apiConfig";
 // import t4 from "../../../Assets/t4.mp4";
 
 const VideoCard = ({ videoUrl }) => {
@@ -32,7 +33,7 @@ const RecentEvents = () => {
     const fetchEvents = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/get-recent-events"
+          `${API_URL}/api/get-recent-events`
         );
         console.log(response.data);
         setEvents(response.data.recent_events);

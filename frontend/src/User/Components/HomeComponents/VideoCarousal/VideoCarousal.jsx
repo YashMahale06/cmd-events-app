@@ -3,6 +3,7 @@ import Carousel from "react-multi-carousel";
 import axios from "axios";
 import "react-multi-carousel/lib/styles.css";
 import "./styles.css";
+import { API_URL } from "../../../../config/apiConfig";
 
 const responsive = {
   desktop: {
@@ -31,7 +32,7 @@ const VideoCarousal = () => {
     const fetchVideos = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/get-videos"
+          `${API_URL}/api/get-videos`
         );
         setVideos(response.data);
         setLoading(false);

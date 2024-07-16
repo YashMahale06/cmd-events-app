@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import img from "../../Assets/backdrops/6.jpg";
 import Navbar from "../Navbar/Navbar";
-
+import { API_URL } from "../../config/apiConfig";
 const ServiceImages = () => {
   const [image, setImage] = useState([]);
   const [folder, setFolder] = useState("wedding");
@@ -37,7 +37,7 @@ const ServiceImages = () => {
     for (let i = 0; i < image.length; i++) {
       formData.append("images", image[i]); // Use the correct field name "images"
     }
-    const url = `http://localhost:5000/api/upload-images/${folder}/${subFolder}`;
+    const url = `${API_URL}/api/upload-images/${folder}/${subFolder}`;
 
     try {
       const response = await fetch(url, {

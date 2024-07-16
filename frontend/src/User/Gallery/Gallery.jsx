@@ -5,6 +5,7 @@ import Footer from "../Components/Footer/Footer";
 import prev from "../../Assets/Arrows/prev.png";
 import next from "../../Assets/Arrows/next.png";
 import axios from "axios";
+import { API_URL } from "../../config/apiConfig";
 
 
 export default function Gallery() {
@@ -68,7 +69,7 @@ export default function Gallery() {
   const fetchImages = async () => {
     try {
       
-      const response = await axios.get(`http://localhost:5000/api/gallery/${selectedCategory}`);
+      const response = await axios.get(`${API_URL}/api/gallery/${selectedCategory}`);
       setAllPhotos(response.data);
       // setPhotosFetched((prev) => ({ ...prev, all: true }));
       console.log(response.data);

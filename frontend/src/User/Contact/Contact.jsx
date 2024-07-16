@@ -7,7 +7,7 @@ import location from "../../Assets/contact_icons/location.png";
 import insta from "../../Assets/contact_icons/insta.png";
 import email from "../../Assets/contact_icons/email.png";
 import Footer from "../Components/Footer/Footer";
-
+import { API_URL } from "../../config/apiConfig";
 const Contact = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -25,7 +25,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/contactmail", formData);
+      await axios.post(`${API_URL}/api/contactmail`, formData);
       alert("Message sent successfully!");
       setFormData({
         firstName: "",

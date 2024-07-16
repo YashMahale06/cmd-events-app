@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import img from "../../Assets/backdrops/6.jpg";
 import axios from "axios";
+import { API_URL } from "../../config/apiConfig";
 export default function AddEvent() {
   const [eventData, setEventData] = useState({
     event_name: "",
@@ -52,7 +53,7 @@ export default function AddEvent() {
     const url = "http://localhost:5000/api/upload-recent-event";
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/upload-recent-event",
+        `${API_URL}/api/upload-recent-event`,
         formData,
         {
           headers: {

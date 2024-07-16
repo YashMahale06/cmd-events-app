@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { API_URL } from '../../../../config/apiConfig';
 
 const Video = () => {
     const [videos, setVideos] = useState([]);
@@ -16,7 +17,7 @@ const Video = () => {
         }
         console.log(formData);
         try {
-            const response = await axios.post("http://localhost:5000/api/postvideos", formData, {
+            const response = await axios.post(`${API_URL}/api/postvideos`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

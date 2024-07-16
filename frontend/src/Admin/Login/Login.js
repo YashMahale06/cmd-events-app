@@ -3,6 +3,7 @@ import logo from "../../Assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { API_URL } from "../../config/apiConfig";
 export const Login = () => {
 
   const [username, setUsername] = useState('');
@@ -11,7 +12,7 @@ export const Login = () => {
 
   const handleLogin = async () => {
     // Send login request to backend
-    const response = await fetch('http://localhost:5000/api/login', {
+    const response = await fetch(`${API_URL}/api/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
